@@ -29,7 +29,7 @@ describe 'A user wants to deleta an idea' do
 
       visit ideas_path
 
-      within(".ideas_#{idea.id}") do
+      within(".idea-#{idea1.id}") do
         find('.delete').click
       end
 
