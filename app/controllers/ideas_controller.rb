@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: %i[show]
+  before_action :set_idea, only: %i[show edit update]
   def index
     @ideas = Idea.all
   end
@@ -18,6 +18,19 @@ class IdeasController < ApplicationController
       redirect_to idea_path(@idea)
     else
       flash.notice = 'Idea not added. Try again.'
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @idea.update(idea_params)
+      flash.notice = "#{@idea.title} edited."
+      redirect_to idea_path(@idea)
+    else
+      flash.notice = "#{@idea.title} not edited. Try again."
       render :new
     end
   end
