@@ -3,9 +3,9 @@ require 'rails_helper'
 describe 'A user visits the ideas#index page' do
   describe 'to see all the ideas' do
     it 'shows all the ideas' do
-      idea1 = Idea.new(title: 'First', body: 'Whoo an idea')
-      idea2 = Idea.new(title: 'Second', body: 'Yikes another idea')
-      idea3 = Idea.new(title: 'Third', body: 'A third idea!')
+      idea1 = Idea.create!(title: 'First', body: 'Whoo an idea')
+      idea2 = Idea.create!(title: 'Second', body: 'Yikes another idea')
+      idea3 = Idea.create!(title: 'Third', body: 'A third idea!')
 
       visit ideas_path
 
