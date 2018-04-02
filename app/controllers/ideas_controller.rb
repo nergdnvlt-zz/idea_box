@@ -1,10 +1,13 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: %i[show edit update]
-  def index
-    @ideas = Idea.all
+  before_action :set_idea, only: %i[show edit update destroy]
+  def show
   end
 
-  def show
+  def edit
+  end
+
+  def index
+    @ideas = Idea.all
   end
 
   def new
@@ -22,9 +25,6 @@ class IdeasController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     if @idea.update(idea_params)
       flash.notice = "#{@idea.title} edited."
@@ -32,6 +32,15 @@ class IdeasController < ApplicationController
     else
       flash.notice = "#{@idea.title} not edited. Try again."
       render :new
+    end
+  end
+
+  def destroy
+    if @idea.destroy
+      flash.notice = 'Idea Deleted!'
+      redirect_to ideas_path
+    else
+      redirect_to idea_path(@idea)
     end
   end
 

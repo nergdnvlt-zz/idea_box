@@ -1,4 +1,5 @@
 <h1><%= @idea.title %></h1>
 <p><%= @idea.body %></p>
 
-<%= link_to "Edit Idea", edit_idea_path(@idea) %>
+<%= link_to 'Edit Idea', edit_idea_path(@idea) %>
+<%= link_to 'Delete', idea_path(@idea), method: 'delete' %>
