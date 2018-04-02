@@ -1,3 +1,6 @@
+<h1>Ideas!</h1>
+<%= link_to 'Create a new idea', new_idea_path %>
+
 <% @ideas.each do |idea| %>
   <div class=idea-<%= idea.id %>>
 
@@ -13,5 +16,3 @@
     <p> <%= idea.body %></p>
   </div>
 <% end %>
-
-<%= link_to 'Create a new idea', new_idea_path %>
