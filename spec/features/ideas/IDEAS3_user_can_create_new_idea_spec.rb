@@ -9,6 +9,7 @@ describe 'A user visits the ideas#new page' do
 
       fill_in 'idea[title]', with: 'Whoa'
       fill_in 'idea[body]', with: 'Yay an idea'
+      click_on 'Submit'
 
       expect(current_path).to eq(idea_path(Idea.all.last))
       expect(page).to have_content('Whoa')
