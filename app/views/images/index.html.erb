@@ -1,0 +1,7 @@
+<h1>Image Gallery</h1>
+
+<% @images.each do |image| %>
+  <div class="image-card">
+    <img src="<%= image.src %>" alt="<%= image.title %>">
+  </div>
+<% end %>
