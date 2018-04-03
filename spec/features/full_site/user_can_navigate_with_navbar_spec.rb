@@ -51,4 +51,37 @@ describe 'user visits root' do
       expect(page).to have_css("img[src*='#{@image3.src}']")
     end
   end
+
+  describe 'to link back to home page' do
+    it 'from Categories' do
+      visit categories_path
+
+      click_link 'Home'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Welcome to Idea Box')
+    end
+  end
+
+  describe 'to link back to home page' do
+    it 'from Ideas' do
+      visit categories_path
+
+      click_link 'Home'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Welcome to Idea Box')
+    end
+  end
+
+  describe 'to link back to home page' do
+    it 'from Images' do
+      visit categories_path
+
+      click_link 'Home'
+
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Welcome to Idea Box')
+    end
+  end
 end
