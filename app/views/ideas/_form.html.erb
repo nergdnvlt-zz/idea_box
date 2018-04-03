@@ -9,6 +9,9 @@
     <%= f.text_area :body, class: 'form_control' %>
   </div>
 
+  <%= f.label :category %><br/>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name %><br/>
+
   <div class="actions">
     <%= f.submit "Submit", class: 'btn btn-success' %>
   </div>
