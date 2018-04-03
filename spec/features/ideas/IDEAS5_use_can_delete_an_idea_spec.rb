@@ -10,7 +10,7 @@ describe 'A user wants to deleta an idea' do
 
       visit idea_path(idea1)
 
-      click_link 'Delete'
+      find('.delete').click
 
       expect(current_path).to eq(ideas_path)
       expect(page).to_not have_content(idea1.title)
