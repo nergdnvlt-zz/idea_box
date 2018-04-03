@@ -6,10 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
+  <header>
+    <nav class="navbar navbar-inverse">
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Categories', categories_path %>
+      <%= link_to 'Ideas', ideas_path %>
+      <%= link_to 'Images', images_path %>
+    </nav>
+  </header>
 
   <body>
-    <div id='main' class='container'>
+    <div class="format">
       <p class="flash"><%= flash.notice %></p>
       <%= yield %>
     </div>

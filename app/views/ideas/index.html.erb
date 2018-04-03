@@ -1,7 +1,7 @@
 <h1>Ideas!</h1>
 <%= link_to 'Create a new idea', new_idea_path %>
 
-<div class="row">
+<div>
   <% @ideas.each do |idea| %>
     <%= render idea %>
   <% end %>
