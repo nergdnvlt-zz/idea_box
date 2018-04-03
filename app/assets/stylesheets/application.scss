@@ -1,2 +1,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.format {
+  margin-left: 20%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.icons {
+  padding-left: 20px;
+}
+
+.idea-card {
+  display: flex;
+  flex-direction: row;
+  border: 2px ridge #BFC7D3;
+  margin: 10px;
+  width: 70%;
+  align-items: center;
+}
+
+.idea-title {
+  margin-left: 40px;
+  margin-right: auto;
+}
+
+.idea-body {
+  margin-right: 20px;
+}
