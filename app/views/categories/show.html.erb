@@ -1,0 +1,9 @@
+<h1> <%= @category.name %> </h1>
+
+Edit_link
+Delete_link
+
+<% @category.ideas.each do |idea| %>
+  <p><%= idea.title %></p>
+  <p><%= idea.body %></p>
+<% end %>
