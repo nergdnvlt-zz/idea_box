@@ -9,7 +9,9 @@
   </head>
 
   <body>
-    <p class="flash"><%= flash.notice %></p>
-    <%= yield %>
+    <div id='main' class='container'>
+      <p class="flash"><%= flash.notice %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
