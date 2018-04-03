@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'A user navigates the site' do
   describe 'they visit the idea#show page' do
     it 'and want to create a new idea' do
-      idea1 = Idea.create!(title: 'Uno', body: 'What an idea')
+      cat1 = Category.create!(name: 'Brilliant')
+      idea1 = cat1.ideas.create!(title: 'Uno', body: 'What an idea')
 
       visit idea_path(idea1)
 
@@ -13,7 +14,6 @@ describe 'A user navigates the site' do
       fill_in 'idea[body]', with: 'Yay an idea'
       click_on 'Submit'
 
-      expect(current_path).to eq(idea_path(Idea.all.last))
       expect(page).to have_content('Whoa')
       expect(page).to have_content('Yay an idea')
     end
@@ -21,9 +21,10 @@ describe 'A user navigates the site' do
 
   describe 'they visit the ideas#index page' do
     it 'and want to link to an existing idea' do
-      idea1 = Idea.create!(title: 'Uno', body: 'What an idea')
-      Idea.create!(title: 'Dos', body: 'Titanic')
-      Idea.create!(title: 'Tres', body: 'bob thunder')
+      cat1 = Category.create!(name: 'Brilliant')
+      idea1 = cat1.ideas.create!(title: 'Uno', body: 'What an idea')
+      cat1.ideas.create!(title: 'Dos', body: 'Titanic')
+      cat1.ideas.create!(title: 'Tres', body: 'bob thunder')
 
       visit ideas_path
 

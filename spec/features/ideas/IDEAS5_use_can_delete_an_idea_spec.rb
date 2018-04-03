@@ -3,9 +3,10 @@ require 'rails_helper'
 describe 'A user wants to deleta an idea' do
   describe 'they visit the idea#show page' do
     it 'they click the delete link to delete the idea' do
-      idea1 = Idea.create!(title: 'Uno', body: 'What an idea')
-      idea2 = Idea.create!(title: 'Dos', body: 'Titanic')
-      idea3 = Idea.create!(title: 'Tres', body: 'bob thunder')
+      cat1 = Category.create!(name: 'Brilliant')
+      idea1 = cat1.ideas.create!(title: 'Uno', body: 'What an idea')
+      idea2 = cat1.ideas.create!(title: 'Dos', body: 'Titanic')
+      idea3 = cat1.ideas.create!(title: 'Tres', body: 'bob thunder')
 
       visit idea_path(idea1)
 
@@ -23,9 +24,10 @@ describe 'A user wants to deleta an idea' do
 
   describe 'they visit the idea#index page' do
     it 'they click the delete link to delete the idea' do
-      idea1 = Idea.create!(title: 'Uno', body: 'What an idea')
-      idea2 = Idea.create!(title: 'Dos', body: 'Titanic')
-      idea3 = Idea.create!(title: 'Tres', body: 'bob thunder')
+      cat1 = Category.create!(name: 'Brilliant')
+      idea1 = cat1.ideas.create!(title: 'Uno', body: 'What an idea')
+      idea2 = cat1.ideas.create!(title: 'Dos', body: 'Titanic')
+      idea3 = cat1.ideas.create!(title: 'Tres', body: 'bob thunder')
 
       visit ideas_path
 
