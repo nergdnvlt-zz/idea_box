@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[show edit update]
+  before_action :set_category, only: %i[show edit update destroy]
 
   def show
   end
@@ -33,6 +33,16 @@ class CategoriesController < ApplicationController
     else
       flash.notice = "#{@category.name} Not Updated, Try Again."
       render :edit
+    end
+  end
+
+  def destroy
+    if @category.destroy
+      flash.notice = 'Category Deleted!'
+      redirect_to categories_path
+    else
+      flash.notice = "#{@category} Not Deleted!"
+      redirect_to category_path(@category)
     end
   end
 

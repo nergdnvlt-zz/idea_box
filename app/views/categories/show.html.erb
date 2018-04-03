@@ -1,7 +1,12 @@
 <h1> <%= @category.name %> </h1>
 
-Edit_link
-Delete_link
+<%= link_to edit_category_path(@category), class: "btn btn-default edit" do %>
+  <span class="glyphicon glyphicon-edit"></span>
+ <% end %>
+
+<%= link_to category_path(@category), method: 'delete', class: "btn btn-default delete" do %>
+  <span class="glyphicon glyphicon-trash"></span>
+<% end %>
 
 <% @category.ideas.each do |idea| %>
   <p><%= idea.title %></p>
