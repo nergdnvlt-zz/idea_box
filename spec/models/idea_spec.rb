@@ -8,5 +8,7 @@ RSpec.describe Idea, type: :model do
 
   describe 'Relationships' do
     it { should belong_to(:category) }
+    it { should have_many(:image_ideas) }
+    it { should have_many(:images) }
   end
 end
