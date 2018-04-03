@@ -12,7 +12,7 @@
       <span class="glyphicon glyphicon-trash"></span>
     <% end %>
 
-    <h1><%= idea.title %></h1>
+    <h1><%= link_to idea.title, idea_path(idea) %></h1>
     <p> <%= idea.body %></p>
   </div>
 <% end %>

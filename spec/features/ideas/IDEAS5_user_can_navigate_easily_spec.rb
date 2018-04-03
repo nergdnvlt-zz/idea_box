@@ -22,20 +22,17 @@ describe 'A user navigates the site' do
   describe 'they visit the ideas#index page' do
     it 'and want to link to an existing idea' do
       idea1 = Idea.create!(title: 'Uno', body: 'What an idea')
-      idea2 = Idea.create!(title: 'Dos', body: 'Titanic')
-      idea3 = Idea.create!(title: 'Tres', body: 'bob thunder')
+      Idea.create!(title: 'Dos', body: 'Titanic')
+      Idea.create!(title: 'Tres', body: 'bob thunder')
 
-      visit idea_path(idea1)
+      visit ideas_path
 
-      click_link 'Delete'
+      click_link "#{idea1.title}"
 
-      expect(current_path).to eq(ideas_path)
-      expect(page).to_not have_content(idea1.title)
-      expect(page).to_not have_content(idea1.body)
-      expect(page).to have_content(idea2.title)
-      expect(page).to have_content(idea2.body)
-      expect(page).to have_content(idea3.title)
-      expect(page).to have_content(idea3.body)
+
+      expect(current_path).to eq(idea_path(idea1))
+      expect(page).to have_content(idea1.title)
+      expect(page).to have_content(idea1.body)
     end
   end
 end
