@@ -7,7 +7,7 @@ describe 'A user wants to edit an idea' do
       idea = cat1.ideas.create!(title: 'First', body: 'Whoo an idea')
       visit idea_path(idea)
 
-      click_link 'Edit Idea'
+      find('.edit').click
 
       fill_in 'idea[title]', with: 'Whoa'
       fill_in 'idea[body]', with: 'Yay an idea'
