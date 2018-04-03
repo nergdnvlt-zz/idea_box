@@ -2,5 +2,13 @@
 <%= link_to "Create New Category", new_category_path %>
 
 <% @categories.each do |category| %>
-  <%= link_to category.name, category_path(category) %>
+  <div class=category-<%= category.id %>>
+
+    <%= link_to edit_category_path(category), class: "btn btn-default edit" do %>
+      <span class="glyphicon glyphicon-edit"></span>
+     <% end %>
+
+    <%= link_to category.name, category_path(category) %>
+
+  </div>
 <% end %>

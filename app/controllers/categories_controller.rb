@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[show]
+  before_action :set_category, only: %i[show edit update]
+
+  def edit
+  end
 
   def index
     @categories = Category.all
@@ -23,6 +26,17 @@ class CategoriesController < ApplicationController
       render :new
     end
   end
+
+  def update
+    if @category.update(category_params)
+      flash.notice = "#{@category.name} Updated!"
+      redirect_to category_path(@category)
+    else
+      flash.notice = "#{@category.name} Not Updated, Try Again."
+      render :edit
+    end
+  end
+
 
   private
 
