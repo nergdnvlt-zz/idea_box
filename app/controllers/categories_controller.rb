@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
+  # before_action :authorize, only: %i[edit update delete]
 
   def show
   end
@@ -47,6 +48,17 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+    # def current_permission
+    #   @current_permission ||= Permission.new(current_user)
+    # end
+    #
+    # def authorize
+    #   if !current_permission.allow?
+    #     flash.notice = 'Not Authorized'
+    #     redirect_to ideas_path
+    #   end
+    # end
 
     def set_category
       @category = Category.find(params[:id])
