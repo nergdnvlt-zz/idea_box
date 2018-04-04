@@ -3,9 +3,10 @@ require 'rails_helper'
 describe 'A user visits the ideas#show page' do
   describe 'to see the first idea' do
     it 'shows the idea' do
+      user1 = User.create!(username: 'Thor', password: 'test')
       cat1 = Category.create!(name: 'Brilliant')
-      idea1 = cat1.ideas.create!(title: 'First', body: 'Whoo an idea')
-      idea2 = cat1.ideas.create!(title: 'Second', body: 'Yikes another idea')
+      idea1 = cat1.ideas.create!(title: 'First', body: 'Whoo an idea', user_id: user1.id)
+      idea2 = cat1.ideas.create!(title: 'Second', body: 'Yikes another idea', user_id: user1.id)
 
       visit idea_path(idea1)
 
@@ -19,10 +20,11 @@ describe 'A user visits the ideas#show page' do
 
   describe 'to see another idea' do
     it 'shows a different idea' do
+      user1 = User.create!(username: 'Thor', password: 'test')
       cat1 = Category.create!(name: 'Brilliant')
-      idea1 = cat1.ideas.create!(title: 'First', body: 'Whoo an idea')
-      idea2 = cat1.ideas.create!(title: 'Second', body: 'Yikes another idea')
-      idea3 = cat1.ideas.create!(title: 'Third', body: 'A third idea!')
+      idea1 = cat1.ideas.create!(title: 'First', body: 'Whoo an idea', user_id: user1.id)
+      idea2 = cat1.ideas.create!(title: 'Second', body: 'Yikes another idea', user_id: user1.id)
+      idea3 = cat1.ideas.create!(title: 'Third', body: 'A third idea!', user_id: user1.id)
 
       visit idea_path(idea2)
 

@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'A user wants to edit an idea' do
   describe 'so they visit the ideas#show page' do
     it 'and fill in the info and clicks submit' do
+      user1 = User.create!(username: 'Thor', password: 'test')
       cat1 = Category.create!(name: 'Brilliant')
-      idea = cat1.ideas.create!(title: 'First', body: 'Whoo an idea')
+      idea = cat1.ideas.create!(title: 'First', body: 'Whoo an idea', user_id: user1.id)
       visit idea_path(idea)
 
       find('.edit').click
@@ -23,10 +24,11 @@ describe 'A user wants to edit an idea' do
 
   describe 'so they visit the ideas#index' do
     it 'fills in the info and clicks submit' do
+      user1 = User.create!(username: 'Thor', password: 'test')
       cat1 = Category.create!(name: 'Brilliant')
-      idea1 = cat1.ideas.create!(title: 'Uno', body: 'What an idea')
-      cat1.ideas.create!(title: 'Dos', body: 'Titanic')
-      cat1.ideas.create!(title: 'Tres', body: 'bob thunder')
+      idea1 = cat1.ideas.create!(title: 'Uno', body: 'What an idea', user_id: user1.id)
+      cat1.ideas.create!(title: 'Dos', body: 'Titanic', user_id: user1.id)
+      cat1.ideas.create!(title: 'Tres', body: 'bob thunder', user_id: user1.id)
 
       visit ideas_path
 
