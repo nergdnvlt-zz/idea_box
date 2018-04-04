@@ -12,7 +12,7 @@ describe 'A user visits the root_path' do
       fill_in 'user[username]', with: 'heavensdownfall'
       fill_in 'user[password]', with: 'test'
 
-      click_on 'Create User'
+      click_on 'Create Account'
 
       expect(page).to have_content('Welcome, funbucket13!')
     end

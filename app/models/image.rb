@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-  validates :src, presence: true
+  validates :src, presence: true, uniqueness: true
   validates :title, presence: true
 
   has_many :image_ideas
