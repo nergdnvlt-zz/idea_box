@@ -15,13 +15,18 @@ body {
   padding-left: 20px;
 }
 
-.idea-card {
+.card {
   display: flex;
   flex-direction: row;
   border: 2px ridge #BFC7D3;
   margin: 10px;
   width: 70%;
   align-items: center;
+}
+
+.category-title {
+  margin-left: 40px;
+  margin-right: auto;
 }
 
 .idea-title {
@@ -31,4 +36,43 @@ body {
 
 .idea-body {
   margin-right: 20px;
+}
+.image-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.image-show-title {
+  display: flex;
+  align-items: center;
+}
+
+.image-show-title .delete {
+  margin: 10px;
+  height: 60%;
+}
+
+.image-card img {
+  height: 300px;
+  width: 400px;
+}
+
+.image-card h2 {
+  margin-left: 30px;
+}
+
+.navbar {
+  font-size: 20px;
+  background-color: #A6ACAF;
+  border-color: #909497;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar a {
+  color: #34495E;
 }
