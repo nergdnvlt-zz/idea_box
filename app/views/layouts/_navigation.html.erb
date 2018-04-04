@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse">
+
+  <% if current_user.nil? %>
+    <div class="home-nav">
+      <%= link_to root_path class: "btn go_home" do %>
+        <span class="glyphicon glyphicon-home"></span> &nbsp; Log In Page
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <% if current_user %>
+    <div class="home-nav">
+      <%= link_to ideas_path class: "btn btn-default go_ideas" do %>
+        <span class="glyphicon glyphicon-pushpin"></span> &nbsp; <%= current_user.username %>'s Page
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <div class="new-idea-nav">
+      <%= link_to new_idea_path class: "btn btn-default go_new-idea" do %>
+        <span class="glyphicon glyphicon-pencil"></span> &nbsp; New Idea
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="categories-nav">
+    <%= link_to categories_path class: "btn btn-default go_categories" do %>
+      <span class="glyphicon glyphicon-book"></span> &nbsp; Categories
+    <% end %>
+  </div>
+
+  <div class="images-nav">
+    <%= link_to images_path class: "btn btn-default go_images" do %>
+      <span class="glyphicon glyphicon-picture"></span> &nbsp; Images
+    <% end %>
+  </div>
+
+  <div class="signout-nav">
+    <%= link_to session_path(current_user), method: 'delete', class: "btn go_home" do %>
+      <span class="glyphicon glyphicon-picture"></span> &nbsp; Log Out
+    <% end %>
+  </div>
+
+</nav>

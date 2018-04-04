@@ -69,10 +69,24 @@ body {
   background-color: #A6ACAF;
   border-color: #909497;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .navbar a {
   color: #34495E;
+}
+
+.idea-images {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.each-checkbox {
+  display: flex;
+  align-items: center;
 }
