@@ -1,7 +1,37 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Idea.destroy_all
+ImageIdea.destroy_all
+Image.destroy_all
+Category.destroy_all
+User.destroy_all
+
+USERNAMES = %w[Bob Odin Thor Freya Hela Valyrie]
+CATEGORIES = %w[Kowabunga Radical Ridiculous]
+IMAGES = ['https://orig00.deviantart.net/9221/f/2008/344/a/7/palafitico_by_andymumford.jpg',
+          'https://t00.deviantart.net/B9Uj_GJead3Q_-iuk1bpWRG49M4=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/ba15/th/pre/f/2016/151/a/4/magoito_sunset_by_andymumford-da4hzy8.jpg',
+          'https://t00.deviantart.net/BAubTrhv2LhdqSzofr26LE7bD3c=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/425c/th/pre/f/2010/284/3/8/the_old_man_by_andymumford-d30jtu7.jpg',
+          'https://static1.squarespace.com/static/5852ece3e6f2e1ac624051fb/t/585d981603596eeb5267d25e/1482528797541/miramar2+copy.jpg?format=1500w',
+          'https://t00.deviantart.net/kbcP_EOb1nun_dyw7L08h6GrcBw=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/6e40/th/pre/f/2014/279/d/d/altiplano_light_by_andymumford-d81ufew.jpg',
+          'http://photodoto.com/wp-content/uploads/2013/08/Andy-Mumford-500x329.jpg']
+TITLES = %w[random1 random2 random3]
+IDEAS = %w[Unbelievable Rad Rufio Lime Pineapple Kiwi Iphone Mad Neff DC Chopper Bobber MLD 11B]
+BODY = ['Love it', 'Flower child', 'Free love', 'Get em', 'Oh yeah']
+USERS = []
+CATEGORY_IDS = []
+
+
+USERNAMES.each_with_index do |username, index|
+  USERS.push(index = User.create!(username: username, password: 'test'))
+end
+
+CATEGORIES.each do |category, index|
+  CATEGORY_IDS.push(Category.create!(name: category))
+end
+
+IMAGES.each do |image|
+  Image.create!(src: image, title: TITLES.sample)
+end
+
+IDEAS.each do |idea|
+  idea = Idea.new(title: idea, body: BODY.sample, category_id: CATEGORY_IDS.sample, user_id: USERS.sample)
+  idea.save
+end
