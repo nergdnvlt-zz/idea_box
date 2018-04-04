@@ -31,11 +31,6 @@ IMAGES.each do |image|
   Image.create!(src: image, title: TITLES.sample)
 end
 
-# IDEAS.each do |idea|
-#   FULL_IDEAS.push(Idea.create!(title: idea, body: BODY.sample, category_id: CATEGORY_IDS.sample, user_id: USERS.sample))
-#   require 'pry'; binding.pry
-# end
-
 idea1 = Idea.create!(title: IDEAS[0], body: BODY.sample, category_id: CATEGORY_IDS[0].id, user_id: USERS[0].id)
 idea2 = Idea.create!(title: IDEAS[1], body: BODY.sample, category_id: CATEGORY_IDS[1].id, user_id: USERS[1].id)
 idea3 = Idea.create!(title: IDEAS[2], body: BODY.sample, category_id: CATEGORY_IDS[2].id, user_id: USERS[2].id)
@@ -50,5 +45,3 @@ idea11 = Idea.create!(title: IDEAS[10], body: BODY.sample, category_id: CATEGORY
 idea12 = Idea.create!(title: IDEAS[11], body: BODY.sample, category_id: CATEGORY_IDS[2].id, user_id: USERS[1].id)
 idea13 = Idea.create!(title: IDEAS[12], body: BODY.sample, category_id: CATEGORY_IDS[0].id, user_id: USERS[2].id)
 idea14 = Idea.create!(title: IDEAS[13], body: BODY.sample, category_id: CATEGORY_IDS[1].id, user_id: USERS[3].id)
-
-require 'pry'; binding.pry

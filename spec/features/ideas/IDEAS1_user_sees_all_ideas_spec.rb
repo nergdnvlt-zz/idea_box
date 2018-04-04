@@ -4,6 +4,7 @@ describe 'A user visits the ideas#index page' do
   describe 'to see all the ideas' do
     it 'shows all the ideas' do
       user1 = User.create!(username: 'Thor', password: 'test')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
       cat1 = Category.create!(name: 'Brilliant')
       idea1 = cat1.ideas.create!(title: 'First', body: 'Whoo an idea', user_id: user1.id)
       idea2 = cat1.ideas.create!(title: 'Second', body: 'Yikes another idea', user_id: user1.id)

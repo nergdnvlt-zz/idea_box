@@ -4,6 +4,7 @@ describe 'A user wants to edit an idea' do
   describe 'so they visit the ideas#show page' do
     it 'and fill in the info and clicks submit' do
       user1 = User.create!(username: 'Thor', password: 'test')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
       cat1 = Category.create!(name: 'Brilliant')
       idea = cat1.ideas.create!(title: 'First', body: 'Whoo an idea', user_id: user1.id)
       visit idea_path(idea)
@@ -25,6 +26,7 @@ describe 'A user wants to edit an idea' do
   describe 'so they visit the ideas#index' do
     it 'fills in the info and clicks submit' do
       user1 = User.create!(username: 'Thor', password: 'test')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
       cat1 = Category.create!(name: 'Brilliant')
       idea1 = cat1.ideas.create!(title: 'Uno', body: 'What an idea', user_id: user1.id)
       cat1.ideas.create!(title: 'Dos', body: 'Titanic', user_id: user1.id)

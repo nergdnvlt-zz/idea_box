@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'user visits root' do
   before(:each) do
     @user1 = User.create!(username: 'Thor', password: 'test')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
     @cat1 = Category.create!(name: 'Brilliant')
     @idea1 = @cat1.ideas.create!(title: 'First', body: 'Whoo an idea', user_id: @user1.id)
     @idea2 = @cat1.ideas.create!(title: 'Second', body: 'Yikes another idea', user_id: @user1.id)
@@ -27,59 +28,22 @@ describe 'user visits root' do
     end
   end
 
-  describe 'to link to ideas' do
-    it 'they see all the ideas' do
-      visit root_path
-
-      click_link 'Ideas'
-
-      expect(current_path).to eq(ideas_path)
-      expect(page).to have_content(@idea1.title)
-      expect(page).to have_content(@idea2.title)
-      expect(page).to have_content(@idea3.title)
-    end
-  end
-
-  describe 'to link to ideas' do
-    it 'they see all the ideas' do
-      visit root_path
-
-      click_link 'Images'
-
-      expect(current_path).to eq(images_path)
-      expect(page).to have_css("img[src*='#{@image1.src}']")
-      expect(page).to have_css("img[src*='#{@image2.src}']")
-      expect(page).to have_css("img[src*='#{@image3.src}']")
-    end
-  end
-
   describe 'to link back to home page' do
     it 'from Categories' do
       visit categories_path
 
-      click_link 'Home'
+      click_link "#{@user1.username}'s Page"
 
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content('Welcome to Idea Box')
+      expect(current_path).to eq(ideas_path)
+      expect(page).to have_content('Ideas!')
     end
   end
 
-  describe 'to link back to home page' do
-    it 'from Ideas' do
-      visit categories_path
+  describe 'to return to sign in page' do
+    it 'from anywhere clicks sign out' do
+      visit ideas_path
 
-      click_link 'Home'
-
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content('Welcome to Idea Box')
-    end
-  end
-
-  describe 'to link back to home page' do
-    it 'from Images' do
-      visit categories_path
-
-      click_link 'Home'
+      click_link 'Log Out'
 
       expect(current_path).to eq(root_path)
       expect(page).to have_content('Welcome to Idea Box')
