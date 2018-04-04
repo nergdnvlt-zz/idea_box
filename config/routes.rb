@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :images, except: [:edit, :update]
   resources :users, only: [:new, :create, :show]
-
+  resources :sessions, only: [:destroy]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
