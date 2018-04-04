@@ -1,1 +1,4 @@
- <h1>Welcome, <%= @user.username %>!</h1>
+<h1>Welcome, <%= current_user.username %>!</h1>
+
+<!-- <h6> <%= link_to 'Log Out', session_path(session[:user_id]), method: 'delete' %>  </h6> -->
+<h6> <%= link_to 'Log Out', session_path(current_user), method: 'delete' %>  </h6>
