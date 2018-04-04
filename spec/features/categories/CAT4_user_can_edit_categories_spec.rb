@@ -43,4 +43,20 @@ describe 'A user visits the categories#edit page' do
       expect(page).to_not have_content(cat1.name)
     end
   end
+
+  describe 'a non-admin cannot edit category' do
+    it 'they are directed' do
+      user = User.create(username: 'odin', password: 'test')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      cat1 = Category.create!(name: 'Brilliant')
+      Category.create!(name: 'Super Strange')
+
+      visit categories_path
+      click_link 'Brilliant'
+      find('.edit').click
+
+      expect(current_path).to eq(ideas_path)
+      expect(page).to have_content('Not Authorized')
+    end
+  end
 end
