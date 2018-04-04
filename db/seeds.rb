@@ -23,13 +23,22 @@ USERNAMES.each_with_index do |username, index|
   USERS.push(index = User.create!(username: username, password: 'test'))
 end
 
+admin = User.create(username: 'Joe', password: 'admin', role: 1)
+
 CATEGORIES.each do |category, index|
   CATEGORY_IDS.push(Category.create!(name: category))
 end
 
-IMAGES.each do |image|
-  Image.create!(src: image, title: TITLES.sample)
-end
+# IMAGES.each do |image|
+#   Image.create!(src: image, title: TITLES.sample)
+# end
+
+image1 = Image.create!(src: IMAGES[0], title: TITLES.sample)
+image2 = Image.create!(src: IMAGES[1], title: TITLES.sample)
+image3 = Image.create!(src: IMAGES[2], title: TITLES.sample)
+image4 = Image.create!(src: IMAGES[3], title: TITLES.sample)
+image5 = Image.create!(src: IMAGES[4], title: TITLES.sample)
+image6 = Image.create!(src: IMAGES[5], title: TITLES.sample)
 
 idea1 = Idea.create!(title: IDEAS[0], body: BODY.sample, category_id: CATEGORY_IDS[0].id, user_id: USERS[0].id)
 idea2 = Idea.create!(title: IDEAS[1], body: BODY.sample, category_id: CATEGORY_IDS[1].id, user_id: USERS[1].id)
@@ -45,3 +54,32 @@ idea11 = Idea.create!(title: IDEAS[10], body: BODY.sample, category_id: CATEGORY
 idea12 = Idea.create!(title: IDEAS[11], body: BODY.sample, category_id: CATEGORY_IDS[2].id, user_id: USERS[1].id)
 idea13 = Idea.create!(title: IDEAS[12], body: BODY.sample, category_id: CATEGORY_IDS[0].id, user_id: USERS[2].id)
 idea14 = Idea.create!(title: IDEAS[13], body: BODY.sample, category_id: CATEGORY_IDS[1].id, user_id: USERS[3].id)
+
+idea1.images = [image1, image3, image5]
+idea1.save
+idea2.images = [image2, image4, image6]
+idea2.save
+idea3.images = [image3, image5, image1]
+idea3.save
+idea4.images = [image1, image2, image3]
+idea4.save
+idea5.images = [image4, image5, image6]
+idea5.save
+idea6.images = [image2, image3, image4]
+idea6.save
+idea7.images = [image3, image4, image5]
+idea7.save
+idea8.images = [image4, image5, image6]
+idea8.save
+idea9.images = [image1, image4, image6]
+idea9.save
+idea10.images = [image2, image4, image5]
+idea10.save
+idea11.images = [image1, image3, image5]
+idea11.save
+idea12.images = [image2, image4, image6]
+idea12.save
+idea13.images = [image3, image5, image1]
+idea13.save
+idea14.images = [image1, image2, image3]
+idea14.save
