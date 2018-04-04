@@ -8,6 +8,21 @@ class ImagesController < ApplicationController
     @images = Image.all
   end
 
+  def new
+    @image = Image.new
+  end
+
+  def create
+    @image = Image.new(image_params)
+    if @image.save
+      flash.notice = "#{@image.title} Saved!"
+      redirect_to image_path(@image)
+    else
+      flash.notice = "Image not saved! Try again!"
+      render :new
+    end
+  end
+
   def destroy
     if @image.destroy
       flash.notice = 'Image Delted!'
@@ -22,5 +37,9 @@ class ImagesController < ApplicationController
 
     def set_image
       @image = Image.find(params[:id])
+    end
+
+    def image_params
+      params.require(:image).permit(:src, :title)
     end
 end

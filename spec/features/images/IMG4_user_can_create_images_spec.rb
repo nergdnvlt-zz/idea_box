@@ -9,7 +9,7 @@ describe 'An user visits the images#new page' do
       fill_in 'image[title]', with: 'Andy Mumford'
       click_on 'Submit'
 
-      expect(page).to have_css("img[src*='#{image1.src}']")
+      expect(page).to have_css("img[src*='https://orig00.deviantart.net/9221/f/2008/344/a/7/palafitico_by_andymumford.jpg']")
     end
   end
 end
