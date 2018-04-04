@@ -17,6 +17,7 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
+    @idea.user = current_user
     if @idea.save
       flash.notice = "#{@idea.title} added."
       redirect_to idea_path(@idea)

@@ -2,7 +2,7 @@
 <%= link_to 'Create a new idea', new_idea_path %>
 
 <div>
-  <% @ideas.each do |idea| %>
+  <% current_user.ideas.each do |idea| %>
     <%= render idea %>
   <% end %>
 </div>

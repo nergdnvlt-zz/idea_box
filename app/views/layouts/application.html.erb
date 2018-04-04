@@ -12,7 +12,7 @@
     <nav class="navbar navbar-inverse">
       <div class="home-nav">
         <%= link_to root_path class: "btn go_home" do %>
-          <span class="glyphicon glyphicon-home"></span> &nbsp; Home
+          <span class="glyphicon glyphicon-home"></span> &nbsp; Home?
         <% end %>
       </div>
       <div class="categories-nav">
@@ -29,6 +29,16 @@
         <%= link_to images_path class: "btn btn-default go_images" do %>
           <span class="glyphicon glyphicon-picture"></span> &nbsp; Images
         <% end %>
+      </div>
+      <div class="home-nav">
+        <%= link_to root_path class: "btn go_home" do %>
+          <span class="glyphicon glyphicon-home"></span> &nbsp; Root
+        <% end %>
+      </div>
+      <div class="signout-nav">
+        <%= link_to session_path(current_user), method: 'delete', class: "btn go_home" do %>
+          <span class="glyphicon glyphicon-picture"></span> &nbsp; Log Out
+          <% end %>
       </div>
     </nav>
   </header>
