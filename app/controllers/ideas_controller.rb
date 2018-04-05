@@ -1,15 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: %i[show edit update destroy]
 
-  # def show
-  #   if current_user.ideas.include?(set_idea)
-  #     render :show
-  #   else
-  #     flash.notice = 'Not Allowed'
-  #     redirect_to error_path
-  #   end
-  # end
-
   def show
   end
 
