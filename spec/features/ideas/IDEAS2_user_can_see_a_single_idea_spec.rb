@@ -94,4 +94,20 @@ describe 'A user visits the ideas#show page' do
       expect(page).to have_css("img[src*='#{image2.src}']")
     end
   end
+
+  describe 'cannot see someone elses idea' do
+    it 'shows shows not allowed' do
+      user1 = User.create!(username: 'Thor', password: 'test')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
+      user2 = User.create!(username: 'Jane', password: 'test')
+      cat1 = Category.create!(name: 'Brilliant')
+      idea1 = cat1.ideas.create!(title: 'First', body: 'Whoo an idea', user_id: user2.id)
+      idea2 = cat1.ideas.create!(title: 'Second', body: 'Yikes another idea', user_id: user2.id)
+
+      visit idea_path(idea1)
+
+      expect(current_path).to eq(idea_path(idea1))
+      expect(page).to have_content('Not Allowed')
+    end
+  end
 end

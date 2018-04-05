@@ -17,8 +17,7 @@ describe 'A user visits the ideas#new page' do
 
       click_on 'Submit'
 
-      expect(page).to have_content('Whoa')
-      expect(page).to have_content('Yay an idea')
+      expect(current_path).to eq(idea_path(Idea.all.last))
     end
   end
 end
