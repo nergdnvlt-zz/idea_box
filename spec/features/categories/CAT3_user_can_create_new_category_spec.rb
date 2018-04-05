@@ -32,7 +32,7 @@ describe 'A user visits the categories#new page' do
 
       click_link 'Create New Category'
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(error_path)
       expect(page).to have_content('Not Authorized')
     end
   end

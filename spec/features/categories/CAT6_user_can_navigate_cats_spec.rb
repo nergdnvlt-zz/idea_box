@@ -42,7 +42,7 @@ describe 'A user navigates the site' do
 
       visit categories_path
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(error_path)
       expect(page).to have_content('Not Authorized')
     end
   end
