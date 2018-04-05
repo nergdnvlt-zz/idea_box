@@ -54,7 +54,7 @@ describe 'A user visits the categories#edit page' do
 
       find('.edit').click
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(error_path)
       expect(page).to have_content('Not Authorized')
     end
   end

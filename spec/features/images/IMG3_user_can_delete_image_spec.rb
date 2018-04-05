@@ -31,7 +31,7 @@ describe 'An user visits the images#show page' do
       visit image_path(image1)
       find('.delete').click
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(error_path)
       expect(page).to have_content('Not Authorized')
     end
   end
@@ -44,7 +44,7 @@ describe 'An user visits the images#show page' do
 
       visit image_path(image1)
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(error_path)
       expect(page).to have_content('Not Authorized')
     end
   end

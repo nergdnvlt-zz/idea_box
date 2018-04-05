@@ -21,7 +21,7 @@ describe 'An admin can visit the images#new page' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit new_image_path
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(error_path)
       expect(page).to have_content('Not Authorized')
     end
   end
@@ -30,7 +30,7 @@ describe 'An admin can visit the images#new page' do
     it 'create the image' do
       visit new_image_path
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(error_path)
       expect(page).to have_content('Not Authorized')
     end
   end

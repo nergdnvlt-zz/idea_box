@@ -49,17 +49,6 @@ class CategoriesController < ApplicationController
 
   private
 
-    # def current_permission
-    #   @current_permission ||= Permission.new(current_user)
-    # end
-    #
-    # def authorize
-    #   if !current_permission.allow?
-    #     flash.notice = 'Not Authorized'
-    #     redirect_to ideas_path
-    #   end
-    # end
-
     def set_category
       @category = Category.find(params[:id])
     end

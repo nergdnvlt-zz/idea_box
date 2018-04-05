@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   has_secure_password
 
-  has_many :ideas
+  has_many :ideas, dependent: :destroy
 
   enum role: %i[default admin]
 end

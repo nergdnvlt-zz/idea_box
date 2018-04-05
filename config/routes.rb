@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   root 'welcome#index'
+
+  get '/:not_found', to: 'welcome#unauthorized'
+  get '/error', to: 'welcome#unauthorized'
 end
